@@ -76,13 +76,15 @@ export function Contact() {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: 'https://www.linkedin.com/in/muktijaenal/',
+
+
       color: 'hover:text-blue-600'
     },
     {
       icon: Instagram,
       label: 'Instagram',
-      href: 'https://instagram.com',
+      href: 'https://www.instagram.com/mukti.xj7/',
       color: 'hover:text-blue-400'
     }
   ];

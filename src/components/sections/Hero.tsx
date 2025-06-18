@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Sparkles, Instagram } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 
 export function Hero() {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const titles = ['CS Student', 'Machine Learning Enthusiast', 'Full-Stack Developer', 'Problem Solver', 'Tech Enthusiast'];
+  const titles = ['CS Student', 'Machine Learning Enthusiast', 'Full-Stack Developer', 'Problem Solver', 'Tech Enthusiast', 'Future Project Manager'];
   const fullText = titles[currentIndex % titles.length];
 
   useEffect(() => {
@@ -138,17 +138,19 @@ export function Hero() {
           <div className="flex justify-center lg:justify-start space-x-6">
             {[
               { icon: Github, href: 'https://github.com/Mukti-J', color: 'hover:text-gray-900' },
-              { icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
-              { icon: Mail, href: '#', color: 'hover:text-green-600' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/muktijaenal/', color: 'hover:text-blue-600' },
+              { icon: Instagram, href: 'https://www.instagram.com/mukti.xj7/', color: 'hover:text-pink-500' },
             ].map(({ icon: Icon, href, color }, index) => (
               <motion.a
-                key={index}
-                href={href}
-                className={`text-gray-600 dark:text-gray-400 ${color} transition-colors`}
-                whileHover={{ scale: 1.2, y: -2 }}
-                whileTap={{ scale: 0.9 }}
+              key={index}
+              href={href}
+              className={`text-gray-600 dark:text-gray-400 ${color} transition-colors`}
+              whileHover={{ scale: 1.2, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              target="_blank"
+              rel="noopener noreferrer"
               >
-                <Icon className="w-6 h-6" />
+              <Icon className="w-6 h-6" />
               </motion.a>
             ))}
           </div>
@@ -200,7 +202,7 @@ export function Hero() {
                   <div className="text-xs text-gray-500">Projects</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-secondary-600 dark:text-secondary-400">3.8</div>
+                  <div className="text-xl font-bold text-secondary-600 dark:text-secondary-400">3.6</div>
                   <div className="text-xs text-gray-500">GPA</div>
                 </div>
                 <div className="text-center">
@@ -210,7 +212,7 @@ export function Hero() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-2">
-                {['React', 'Python', 'TypeScript', 'Node.js'].map((tech, index) => (
+                {['Python', 'React', 'TypeScript', 'Laravel'].map((tech, index) => (
                   <motion.span
                     key={tech}
                     className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 text-primary-700 dark:text-primary-300 rounded-full"
