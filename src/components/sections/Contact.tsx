@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, Instagram } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 
@@ -61,7 +61,7 @@ export function Contact() {
       icon: MapPin,
       label: 'Location',
       value: 'Universitas Kristen Satya Wacana, Salatiga, Indonesia',
-      href: '#',
+      href: 'https://maps.google.com/?q=Universitas+Kristen+Satya+Wacana,+Salatiga,+Indonesia',
       color: 'from-purple-500 to-pink-500'
     }
   ];
@@ -80,9 +80,9 @@ export function Contact() {
       color: 'hover:text-blue-600'
     },
     {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com',
+      icon: Instagram,
+      label: 'Instagram',
+      href: 'https://instagram.com',
       color: 'hover:text-blue-400'
     }
   ];
@@ -237,7 +237,7 @@ export function Contact() {
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 Whether you have a project in mind, want to collaborate, or just want to say hello, 
-                I'd love to hear from you. I typically respond within 24 hours.
+                I'd love to hear from you. I typically respond within 24-48 hours.
               </p>
 
               <div className="space-y-6">
@@ -296,9 +296,6 @@ export function Contact() {
                   <h5 className="font-semibold text-gray-900 dark:text-white">
                     Available for opportunities
                   </h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Graduating Spring 2026
-                  </p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>

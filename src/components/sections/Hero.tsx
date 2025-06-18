@@ -7,7 +7,7 @@ import { Card } from '../ui/Card';
 export function Hero() {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const titles = ['Full-Stack Developer', 'CS Student', 'Problem Solver', 'Tech Enthusiast'];
+  const titles = ['CS Student', 'Machine Learning Enthusiast', 'Full-Stack Developer', 'Problem Solver', 'Tech Enthusiast'];
   const fullText = titles[currentIndex % titles.length];
 
   useEffect(() => {
@@ -113,12 +113,21 @@ export function Hero() {
           </div>
 
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-2xl">
-            Passionate Computer Science student at UKSW Salatiga with expertise in full-stack development, 
-            machine learning, and system design. I love building innovative solutions that make a difference.
+            Passionate Computer Science student at UKSW Salatiga with expertise in machine learning, full-stack development, 
+            and system design. I love building innovative solutions that make a difference.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button icon={Mail} size="lg">
+            <Button
+              icon={Mail}
+              size="lg"
+              onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+              }}
+            >
               Get In Touch
             </Button>
             <Button variant="outline" icon={Download} size="lg">

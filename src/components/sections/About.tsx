@@ -90,42 +90,49 @@ export function About() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           <motion.div variants={itemVariants}>
-            <Card glass className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Journey</h3>
-              <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                <p>
-                  My fascination with technology started in high school when I built my first website. 
-                  What began as curiosity has evolved into a deep passion for full-stack development 
-                  and system architecture.
-                </p>
-                <p>
-                  Currently in my third year at UKSW Salatiga, I've had the opportunity to work on 
-                  diverse projects ranging from machine learning applications to scalable web platforms. 
-                  I particularly enjoy the challenge of turning complex problems into elegant, 
-                  user-friendly solutions.
-                </p>
-                <p>
-                  When I'm not coding, you can find me contributing to open-source projects, 
-                  mentoring fellow students, or exploring the latest in tech innovation. 
-                  I believe in continuous learning and staying ahead of industry trends.
-                </p>
-              </div>
-            </Card>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Journey</h3>
+            <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p>
+                My fascination with technology began in junior high, 
+                sparked by an interest in hardware. 
+                I initially hoped to pursue vocational training in Computer and Network Engineering (TKJ) 
+                to delve deeper into hardware, but circumstances led me to study Multimedia instead.
+                It was there that my curiosity expanded beyond hardware into the realm of software.
+                This shift in focus ultimately led me to discover and enroll in UKSW Salatiga,
+                where I'm now in my second year.
+              </p>
+              <p>
+                At UKSW, I've come to understand that IT isn't just about hardware or software in isolation;
+                it's about how they collaborate seamlessly.
+                This broader perspective has fueled my deep passion for full-stack development and system architecture.
+                I've had the opportunity to work on diverse projects,
+                ranging from machine learning applications to scalable web platforms,
+                and I particularly enjoy the challenge of turning complex problems into elegant,
+                user-friendly solutions.
+              </p>
+              <p>
+               When I'm not coding, you can find me actively contributing to group projects with my peers,
+               reflecting the collaborative nature of IT, or fulfilling my role as part of the Informatics Engineering 
+               Student Association. I also enjoy exploring the latest tech innovations. 
+               I believe in continuous learning and staying ahead of industry trends, 
+               always seeking to understand how different technological components work together, much like hardware and software.
+              </p>
+            </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-6">
-            <Card glass className="p-6">
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div>
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Facts</h4>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-gray-500 dark:text-gray-400">Location:</span>
-                  <p className="font-medium text-gray-900 dark:text-white">Berkeley, CA</p>
+                  <p className="font-medium text-gray-900 dark:text-white">Salatiga, Indonesia</p>
                 </div>
                 <div>
                   <span className="text-gray-500 dark:text-gray-400">Education:</span>
-                  <p className="font-medium text-gray-900 dark:text-white">UKSW Salatiga</p>
+                  <p className="font-medium text-gray-900 dark:text-white">UKSW</p>
                 </div>
                 <div>
                   <span className="text-gray-500 dark:text-gray-400">Major:</span>
@@ -133,28 +140,28 @@ export function About() {
                 </div>
                 <div>
                   <span className="text-gray-500 dark:text-gray-400">Year:</span>
-                  <p className="font-medium text-gray-900 dark:text-white">Junior (2025)</p>
+                  <p className="font-medium text-gray-900 dark:text-white">Sophomore (2025)</p>
                 </div>
               </div>
-            </Card>
+            </div>
 
-            <Card glass className="p-6">
+            <div>
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Current Focus</h4>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-gray-700 dark:text-gray-300">Full-Stack Development</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <ul className="space-y-3">
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span className="text-gray-700 dark:text-gray-300">Machine Learning & AI</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-gray-700 dark:text-gray-300">Full-Stack Development</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                   <span className="text-gray-700 dark:text-gray-300">System Design</span>
-                </div>
-              </div>
-            </Card>
+                </li>
+              </ul>
+            </div>
           </motion.div>
         </div>
 

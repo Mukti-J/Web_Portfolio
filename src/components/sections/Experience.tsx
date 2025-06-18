@@ -64,10 +64,10 @@ export function Experience() {
     {
       id: 1,
       degree: 'Bachelor of Science in Computer Science',
-      school: 'University of California, Berkeley',
-      location: 'Berkeley, CA',
-      duration: '2022 - 2026',
-      gpa: '3.8/4.0',
+      school: 'Satya Wacana Christian University, Salatiga',
+      location: 'Salatiga, Indonesia',
+      duration: '2023 - 2025',
+      gpa: '3.6/4.0',
       coursework: [
         'Data Structures & Algorithms',
         'Computer Systems',

@@ -46,34 +46,10 @@ export function Projects() {
       image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800',
       tags: ['React Native', 'Firebase', 'Node.js', 'Socket.io'],
       category: 'mobile',
-      featured: false,
+      featured: true,
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com',
       stats: { stars: 67, forks: 18 }
-    },
-    {
-      id: 4,
-      title: 'CodeSnippet Manager',
-      description: 'Developer tool for organizing, sharing, and searching code snippets with syntax highlighting and collaborative features.',
-      image: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Vue.js', 'Express', 'PostgreSQL', 'Redis'],
-      category: 'web',
-      featured: false,
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-      stats: { stars: 34, forks: 8 }
-    },
-    {
-      id: 5,
-      title: 'Smart Home Dashboard',
-      description: 'IoT dashboard for monitoring and controlling smart home devices with real-time analytics and automation features.',
-      image: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Python', 'MQTT', 'InfluxDB'],
-      category: 'iot',
-      featured: false,
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-      stats: { stars: 52, forks: 15 }
     }
   ];
 
@@ -81,8 +57,7 @@ export function Projects() {
     { id: 'all', label: 'All Projects' },
     { id: 'web', label: 'Web Apps' },
     { id: 'mobile', label: 'Mobile' },
-    { id: 'ai', label: 'AI/ML' },
-    { id: 'iot', label: 'IoT' }
+    { id: 'ai', label: 'AI/ML' }
   ];
 
   const filteredProjects = filter === 'all' 
