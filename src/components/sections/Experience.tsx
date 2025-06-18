@@ -5,59 +5,45 @@ import { Card } from '../ui/Card';
 
 export function Experience() {
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 
   const experiences = [
     {
       id: 1,
-      title: 'Software Engineer Intern',
-      company: 'TechCorp Inc.',
-      location: 'San Francisco, CA',
-      duration: 'Jun 2024 - Aug 2024',
-      type: 'Internship',
-      description: 'Developed and optimized microservices architecture using Node.js and Docker, improving system performance by 40%. Collaborated with cross-functional teams to implement new features for the company\'s main product.',
+      title: 'Member of Internal & External Division',
+      company: 'Himpunan Mahasiswa Teknik Informatika (HMPTI)',
+      location: 'Salatiga, Indonesia',
+      duration: 'Jan 2025 - Present',
+      type: 'Organizational',
+      description: 'Actively involved in fostering relationships between students, faculty, and external parties. Responsible for managing communications and organizing events to enhance the student community experience.',
       achievements: [
-        'Built RESTful APIs serving 100k+ daily requests',
-        'Implemented CI/CD pipeline reducing deployment time by 60%',
-        'Mentored 2 junior developers on best practices'
+        'Acted as a primary liaison between the student body and the faculty.',
+        'Organized and promoted internal workshops and social events to boost member engagement.',
+        'Managed official social media channels, increasing student reach by 30%.',
+        'Established partnerships with other student organizations for collaborative events.'
       ],
-      technologies: ['Node.js', 'React', 'Docker', 'AWS', 'MongoDB'],
-      logo: 'https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=100'
+      technologies: ['Communication', 'Social Media Management', 'Public Relations', 'Event Planning', 'Teamwork'],
+      logo: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=100'
     },
     {
       id: 2,
-      title: 'Full-Stack Developer',
-      company: 'StartupXYZ',
-      location: 'Berkeley, CA',
-      duration: 'Jan 2024 - May 2024',
-      type: 'Part-time',
-      description: 'Led frontend development for a social platform connecting college students. Worked directly with founders to translate business requirements into technical solutions.',
-      achievements: [
-        'Developed responsive web app with 95% mobile compatibility',
-        'Integrated real-time chat using WebSocket technology',
-        'Implemented secure authentication system'
-      ],
-      technologies: ['React', 'TypeScript', 'Firebase', 'Socket.io', 'Tailwind CSS'],
-      logo: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=100'
-    },
-    {
-      id: 3,
-      title: 'Research Assistant',
-      company: 'UKSW Salatiga AI Lab',
+      title: 'Event Coordinator & ML Workshop Lead',
+      company: 'Himpunan Mahasiswa Teknik Informatika (HMPTI)',
       location: 'Salatiga, Indonesia',
-      duration: 'Sep 2023 - Dec 2023',
-      type: 'Research',
-      description: 'Contributed to machine learning research focused on natural language processing. Developed neural network models for text classification and sentiment analysis.',
+      duration: 'Apr 2025 - Jul 2025',
+      type: 'Organizational',
+      description: 'Co-led the planning and execution of a university-wide tech bootcamp focused on Machine Learning and Cyber Security, designed to bridge the gap between academic theory and practical industry skills for over 150 students.',
       achievements: [
-        'Published research paper on sentiment analysis optimization',
-        'Achieved 12% improvement in model accuracy',
-        'Presented findings at undergraduate research symposium'
+        'Designed and delivered a comprehensive 4-hour Machine Learning workshop curriculum.',
+        'Facilitated hands-on coding sessions on Python, Pandas, and Scikit-learn.',
+        'Managed event logistics, including speaker coordination and participant registration.',
+        'Collaborated with the Cyber Security division to ensure a seamless event experience.'
       ],
-      technologies: ['Python', 'TensorFlow', 'PyTorch', 'Jupyter', 'pandas'],
-      logo: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=100'
-    }
+      technologies: ['Python', 'Scikit-learn', 'Pandas', 'Event Management', 'Public Speaking', 'Team Leadership'],
+      logo: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=100'
+    },
   ];
 
   const education = [
@@ -71,10 +57,14 @@ export function Experience() {
       coursework: [
         'Data Structures & Algorithms',
         'Computer Systems',
+        'Web Development',
+        'Artificial Intelligence',
         'Machine Learning',
         'Database Systems',
         'Software Engineering',
-        'Computer Networks'
+        'Computer Networks',
+        'Human-Computer Interaction',
+        'Object-Oriented Programming'
       ],
       activities: [
         'Teaching Assistant for CS 61A',
@@ -187,6 +177,8 @@ export function Experience() {
                               ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400'
                               : exp.type === 'Part-time'
                               ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                              : exp.type === 'Organizational'
+                              ? 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400'
                               : 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400'
                           }`}>
                             {exp.type}
