@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { 
   Figma, 
   Palette, 
@@ -19,6 +19,7 @@ import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 
 export function UIUXPortfolio() {
+  const navigate = useNavigate();
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -405,15 +406,24 @@ export function UIUXPortfolio() {
         <motion.div variants={itemVariants} className="text-center mt-16">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Interested in working together?
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-8">
+          </h3>          <p className="text-gray-600 dark:text-gray-400 mb-8">
             Let's discuss your next design project and create something amazing together.
           </p>
-          <Link to="/contact">
-            <Button size="lg" icon={ArrowRight}>
-              Get In Touch
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            icon={ArrowRight}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
+            }}
+          >
+            Get In Touch
+          </Button>
         </motion.div>
       </motion.div>
     </section>

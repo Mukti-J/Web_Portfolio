@@ -32,8 +32,8 @@ export function Projects() {
       tags: ['UI/UX Design', 'Figma', 'Prototyping', 'User Research', 'Design Systems', 'Accessibility'],
       liveUrl: '/uiux-portfolio',
       githubUrl: 'https://github.com/Mukti-J/UI-UX-Portfolio',
-      stats: { stars: 2, forks: 1 },
-      internal: true // Indicates this is an internal link
+      stats: { },
+      internal: true
     },
     {
       id: 3,
