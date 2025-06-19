@@ -130,7 +130,19 @@ export function Hero() {
             >
               Get In Touch
             </Button>
-            <Button variant="outline" icon={Download} size="lg">
+            <Button
+              variant="outline"
+              icon={Download}
+              size="lg"
+              onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/resume.pdf'; // Update this path to your actual resume file
+              link.download = 'Mukti_Jaenal_Resume.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              }}
+            >
               Download Resume
             </Button>
           </div>
