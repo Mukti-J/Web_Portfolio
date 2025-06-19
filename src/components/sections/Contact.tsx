@@ -3,6 +3,12 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, Instagram } from 'lucide-react';
+
+interface EmailJSError {
+  text?: string;
+  status?: number;
+  message?: string;
+}
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 
@@ -30,8 +36,14 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
+      try {
+      // Debug: Check environment variables
+      console.log('Environment Variables Check:');
+      console.log('Service ID:', import.meta.env.VITE_EMAILJS_SERVICE_ID ? '✓ Set' : '✗ Missing');
+      console.log('Template ID:', import.meta.env.VITE_EMAILJS_TEMPLATE_ID ? '✓ Set' : '✗ Missing');
+      console.log('Auto-reply Template ID:', import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID ? '✓ Set' : '✗ Missing');
+      console.log('Public Key:', import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? '✓ Set' : '✗ Missing');
+
       // Template parameters for main email (to you)
       const templateParams = {
         from_name: formData.name,
@@ -41,6 +53,8 @@ export function Contact() {
         to_email: '672023266@student.uksw.edu' // Your email
       };
 
+      console.log('Sending main email with params:', templateParams);
+
       // Send main email to you
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID!,
@@ -49,12 +63,16 @@ export function Contact() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       );
 
+      console.log('Main email sent successfully');
+
       // Send auto-reply to user
       const autoReplyParams = {
         from_name: formData.name,
         to_email: formData.email,
         subject: formData.subject
       };
+
+      console.log('Sending auto-reply with params:', autoReplyParams);
 
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID!,
@@ -63,16 +81,24 @@ export function Contact() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       );
 
+      console.log('Auto-reply sent successfully');
+
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
       
       // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
+      setTimeout(() => setIsSubmitted(false), 5000);    } catch (error: unknown) {
+      console.error('EmailJS Error Details:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorText = (error as EmailJSError)?.text || '';
+      const errorStatus = (error as EmailJSError)?.status || '';
+      
+      console.error('Error message:', errorMessage);
+      console.error('Error status:', errorStatus);
+      console.error('Error text:', errorText);
+      
+      alert(`Failed to send message: ${errorText || errorMessage}`);
+    }finally {
       setIsSubmitting(false);
     }
   };
