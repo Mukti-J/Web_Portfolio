@@ -39,7 +39,7 @@ const designProjects = [
     {
         id: 1,
         title: 'Wuangi Mobile App UI/UX',
-        category: 'mobile',
+        category: 'mobile,prototype',
         description: 'Premium Cologne and perfume discounter platform store. A mobile app designed for users to browse, purchase, and discover premium fragrances at discounted prices, with a focus on elegant UI and seamless shopping experience.',
         image: '/Opening.png',
         tags: ['Mobile UI', 'E-commerce', 'Product Discovery', 'User Experience'],
@@ -56,7 +56,7 @@ const designProjects = [
     {
         id: 2,
         title: 'Car Rental Website UI/UX',
-        category: 'web',
+        category: 'web,prototype',
         description: 'A modern, responsive website for a car rental service, focusing on seamless booking, vehicle browsing, and user-friendly management for both customers and administrators.',
         image: '/Tentang - Profile.png',
         tags: ['UI Design', 'UX Research', 'Booking Flow', 'Accessibility'],
