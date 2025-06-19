@@ -16,33 +16,33 @@ export function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'EcoTracker',
-      description: 'A comprehensive sustainability tracking platform that helps users monitor their carbon footprint and environmental impact through gamification.',
-      image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-      stats: { stars: 45, forks: 12 }
+      title: 'Face Recognition',
+      description: 'A comprehensive real-time face recognition and object detection application with a modern GUI interface. This system combines YOLO object detection with face recognition capabilities for security, surveillance, and identification purposes.',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+      tags: ['Python', 'OpenCV', 'Yolo', 'Pickle', 'NumPy' , 'CustomTkinter', 'PIL (Pillow)'],
+      liveUrl: 'https://github.com/Mukti-J/Face_Recognition',
+      githubUrl: 'https://github.com/Mukti-J/Face_Recognition',
+      stats: { stars: 1, forks: 0 }
     },
     {
       id: 2,
-      title: 'AI Study Buddy',
-      description: 'Machine learning-powered study assistant that creates personalized learning paths and provides intelligent tutoring for students.',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Python', 'TensorFlow', 'FastAPI', 'React'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-      stats: { stars: 89, forks: 23 }
+      title: 'Coming Soon',
+      description: 'Stay tuned! Exciting projects will be showcased here soon.',
+      image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800',
+      tags: [],
+      liveUrl: '#',
+      githubUrl: '#',
+      stats: { stars: 0, forks: 0 }
     },
     {
       id: 3,
-      title: 'Campus Connect',
-      description: 'Social platform for college students to find study groups, share resources, and connect with peers in their academic journey.',
+      title: 'Coming Soon',
+      description: 'Stay tuned! Exciting projects will be showcased here soon.',
       image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React Native', 'Firebase', 'Node.js', 'Socket.io'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com',
-      stats: { stars: 67, forks: 18 }
+      tags: [],
+      liveUrl: '#',
+      githubUrl: '#',
+      stats: { stars: 0, forks: 0 }
     }
   ];
 
