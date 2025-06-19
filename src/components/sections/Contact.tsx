@@ -3,12 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, Instagram } from 'lucide-react';
-
-interface EmailJSError {
-  text?: string;
-  status?: number;
-  message?: string;
-}
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 
@@ -88,16 +82,41 @@ export function Contact() {
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);    } catch (error: unknown) {
       console.error('EmailJS Error Details:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      const errorText = (error as EmailJSError)?.text || '';
-      const errorStatus = (error as EmailJSError)?.status || '';
       
-      console.error('Error message:', errorMessage);
-      console.error('Error status:', errorStatus);
-      console.error('Error text:', errorText);
-      
-      alert(`Failed to send message: ${errorText || errorMessage}`);
-    }finally {
+      // Better error handling for EmailJS
+      if (error && typeof error === 'object' && 'status' in error) {
+        const emailError = error as { status: number; text: string };
+        console.error('Error status:', emailError.status);
+        console.error('Error text:', emailError.text);
+        
+        // Specific error messages based on status
+        let userMessage = 'Failed to send message. ';
+        switch (emailError.status) {
+          case 400:
+            if (emailError.text.includes('Public Key')) {
+              userMessage += 'Configuration error: Invalid Public Key. Please check EmailJS setup.';
+            } else if (emailError.text.includes('Template')) {
+              userMessage += 'Template error: Please check EmailJS template configuration.';
+            } else {
+              userMessage += 'Bad request: ' + emailError.text;
+            }
+            break;
+          case 401:
+            userMessage += 'Authentication failed. Please check your EmailJS credentials.';
+            break;
+          case 404:
+            userMessage += 'Service or template not found. Please check EmailJS configuration.';
+            break;
+          default:
+            userMessage += emailError.text || 'Unknown error occurred.';
+        }
+        alert(userMessage);
+      } else {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        console.error('Error message:', errorMessage);
+        alert(`Failed to send message: ${errorMessage}`);
+      }
+    } finally {
       setIsSubmitting(false);
     }
   };
