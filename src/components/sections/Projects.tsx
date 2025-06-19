@@ -23,16 +23,15 @@ export function Projects() {
       liveUrl: 'https://github.com/Mukti-J/Face_Recognition',
       githubUrl: 'https://github.com/Mukti-J/Face_Recognition',
       stats: { stars: 1, forks: 0 }
-    },
-    {
+    },    {
       id: 2,
-      title: 'Coming Soon',
-      description: 'Stay tuned! Exciting projects will be showcased here soon.',
-      image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: [],
-      liveUrl: '#',
-      githubUrl: '#',
-      stats: { stars: 0, forks: 0 }
+      title: 'UI/UX Design Portfolio',
+      description: 'A comprehensive showcase of my UI/UX design projects, featuring responsive web designs, mobile app interfaces, and interactive prototypes. Includes detailed case studies, design process documentation, and user research insights.',
+      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+      tags: ['UI/UX Design', 'Figma', 'Prototyping', 'User Research', 'Design Systems', 'Accessibility'],
+      liveUrl: '/uiux-portfolio',
+      githubUrl: 'https://github.com/Mukti-J/UI-UX-Portfolio',
+      stats: { stars: 2, forks: 1 }
     },
     {
       id: 3,
@@ -167,7 +166,7 @@ export function Projects() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="text-center mt-12">
-          <Button icon={Github} size="lg" href="https://github.com/Mukti-J/">
+          <Button icon={Github} size="lg" href="https://github.com/Mukti-J" className="flex items-center justify-center mx-auto">
             View All Projects on GitHub
           </Button>
         </motion.div>
