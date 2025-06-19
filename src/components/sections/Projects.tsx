@@ -167,7 +167,7 @@ export function Projects() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="text-center mt-12">
-          <Button icon={Github} size="lg" href="https://github.com">
+          <Button icon={Github} size="lg" href="https://github.com/Mukti-J">
             View All Projects on GitHub
           </Button>
         </motion.div>
