@@ -137,7 +137,7 @@ export function Hero() {
               onClick={() => {
               const link = document.createElement('a');
               link.href = '/Mukti Jaenal_CV_Academy2025.pdf'; // Update this path to your actual resume file
-              link.download = 'Mukti_Jaenal_Resume.pdf';
+              link.download = 'Mukti Jaenal_CV_Academy2025.pdf';
               document.body.appendChild(link);
               link.click();
               document.body.removeChild(link);
