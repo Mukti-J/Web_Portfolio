@@ -23,7 +23,8 @@ export function Projects() {
       liveUrl: 'https://github.com/Mukti-J/Face_Recognition',
       githubUrl: 'https://github.com/Mukti-J/Face_Recognition',
       stats: { stars: 1, forks: 0 }
-    },    {
+    },
+    {
       id: 2,
       title: 'UI/UX Design Portfolio',
       description: 'A comprehensive showcase of my UI/UX design projects, featuring responsive web designs, mobile app interfaces, and interactive prototypes. Includes detailed case studies, design process documentation, and user research insights.',
@@ -31,7 +32,8 @@ export function Projects() {
       tags: ['UI/UX Design', 'Figma', 'Prototyping', 'User Research', 'Design Systems', 'Accessibility'],
       liveUrl: '/uiux-portfolio',
       githubUrl: 'https://github.com/Mukti-J/UI-UX-Portfolio',
-      stats: { stars: 2, forks: 1 }
+      stats: { stars: 2, forks: 1 },
+      internal: true // Indicates this is an internal link
     },
     {
       id: 3,

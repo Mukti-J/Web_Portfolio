@@ -409,9 +409,11 @@ export function UIUXPortfolio() {
           <p className="text-gray-600 dark:text-gray-400 mb-8">
             Let's discuss your next design project and create something amazing together.
           </p>
-          <Button size="lg" icon={ArrowRight} href="#contact">
-            Get In Touch
-          </Button>
+          <Link to="/contact">
+            <Button size="lg" icon={ArrowRight}>
+              Get In Touch
+            </Button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>
