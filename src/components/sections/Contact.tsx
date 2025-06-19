@@ -26,10 +26,26 @@ export function Contact() {
       ...prev,
       [e.target.name]: e.target.value
     }));
-  };
-  const handleSubmit = async (e: React.FormEvent) => {
+  };  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
+    // Check for common email providers that work better with EmailJS
+    const emailDomain = formData.email.split('@')[1]?.toLowerCase();
+    const reliableProviders = ['gmail.com', 'outlook.com', 'hotmail.com', 'yahoo.com', 'student.uksw.edu'];
+    const isReliableProvider = reliableProviders.includes(emailDomain);
+    
+    if (!isReliableProvider) {
+      const proceed = confirm(
+        `Your email provider (${emailDomain}) might have delivery restrictions. ` +
+        'For better results, consider using Gmail, Outlook, or Yahoo. Continue anyway?'
+      );
+      if (!proceed) {
+        setIsSubmitting(false);
+        return;
+      }
+    }
+    
       try {
       // Debug: Check environment variables
       console.log('Environment Variables Check:');
@@ -37,6 +53,14 @@ export function Contact() {
       console.log('Template ID:', import.meta.env.VITE_EMAILJS_TEMPLATE_ID ? '✓ Set' : '✗ Missing');
       console.log('Auto-reply Template ID:', import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID ? '✓ Set' : '✗ Missing');
       console.log('Public Key:', import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? '✓ Set' : '✗ Missing');
+
+      // Check if email is likely to have delivery issues
+      const isExternalEmail = !formData.email.includes('672023266@student.uksw.edu') && 
+                              !formData.email.includes('muktij7vx@gmail.com'); // Your registered emails
+      
+      if (isExternalEmail) {
+        console.log('⚠️ Sending to external email - may have delivery restrictions on free EmailJS plan');
+      }
 
       // Template parameters for main email (to you)
       const templateParams = {
@@ -90,13 +114,14 @@ export function Contact() {
         console.error('Error text:', emailError.text);
         
         // Specific error messages based on status
-        let userMessage = 'Failed to send message. ';
-        switch (emailError.status) {
+        let userMessage = 'Failed to send message. ';        switch (emailError.status) {
           case 400:
             if (emailError.text.includes('Public Key')) {
               userMessage += 'Configuration error: Invalid Public Key. Please check EmailJS setup.';
             } else if (emailError.text.includes('Template')) {
               userMessage += 'Template error: Please check EmailJS template configuration.';
+            } else if (emailError.text.includes('blocked') || emailError.text.includes('rejected')) {
+              userMessage += 'Email was rejected by the recipient\'s email provider. This often happens with free EmailJS plans when sending to external emails. Try using a different email address or upgrade your EmailJS plan.';
             } else {
               userMessage += 'Bad request: ' + emailError.text;
             }
@@ -104,8 +129,14 @@ export function Contact() {
           case 401:
             userMessage += 'Authentication failed. Please check your EmailJS credentials.';
             break;
+          case 403:
+            userMessage += 'Access forbidden. This might be due to EmailJS plan limitations or the recipient email being blocked.';
+            break;
           case 404:
             userMessage += 'Service or template not found. Please check EmailJS configuration.';
+            break;
+          case 422:
+            userMessage += 'Email validation failed. The recipient email might be invalid or blocked by EmailJS.';
             break;
           default:
             userMessage += emailError.text || 'Unknown error occurred.';
