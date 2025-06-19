@@ -35,76 +35,76 @@ export function UIUXPortfolio() {
     { id: 'prototype', label: 'Prototypes', icon: Target },
   ];
 
-  const designProjects = [
+const designProjects = [
     {
-      id: 1,
-      title: 'Personal Portfolio Website',
-      category: 'web',
-      description: 'A modern, responsive portfolio website showcasing my work with clean aesthetics and smooth animations.',
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['UI Design', 'UX Research', 'Responsive Design', 'Accessibility'],
-      tools: ['Figma', 'Adobe XD', 'Photoshop'],
-      duration: '2 weeks',
-      role: 'UI/UX Designer',
-      challenge: 'Creating a personal brand that stands out while maintaining professionalism',
-      solution: 'Used a gradient-based color scheme with glassmorphism effects and smooth animations',
-      figmaUrl: 'https://figma.com/your-portfolio-design',
-      prototypeUrl: 'https://figma.com/proto/your-portfolio-prototype',
-      caseStudyUrl: '#',
-      devices: ['desktop', 'tablet', 'mobile']
+        id: 1,
+        title: 'Wuangi Mobile App UI/UX',
+        category: 'mobile',
+        description: 'Premium Cologne and perfume discounter platform store. A mobile app designed for users to browse, purchase, and discover premium fragrances at discounted prices, with a focus on elegant UI and seamless shopping experience.',
+        image: '/Opening.png',
+        tags: ['Mobile UI', 'E-commerce', 'Product Discovery', 'User Experience'],
+        tools: ['Figma'],
+        duration: '1 weeks',
+        role: 'UI/UX Designer | Solo Project',
+        challenge: 'Creating a luxurious yet accessible shopping experience for fragrance enthusiasts on mobile devices',
+        solution: 'Designed a visually appealing interface with intuitive navigation, easy product comparison, and streamlined checkout flow',
+        figmaUrl: 'https://www.figma.com/design/zEI8jn7bj3PStoV03DUTnf/Mukti-Jaenal_672023266_T2_IMK-B?node-id=0-1&t=X6DViOYh7lo6Reph-1',
+        prototypeUrl: 'https://www.figma.com/proto/zEI8jn7bj3PStoV03DUTnf/Mukti-Jaenal_672023266_T2_IMK-B?node-id=0-1&t=X6DViOYh7lo6Reph-1',
+        caseStudyUrl: '#',
+        devices: ['mobile']
     },
     {
-      id: 2,
-      title: 'E-Commerce Mobile App',
-      category: 'mobile',
-      description: 'A sleek mobile shopping experience with intuitive navigation and seamless checkout process.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Mobile UI', 'User Journey', 'Micro-interactions', 'E-commerce'],
-      tools: ['Figma', 'Principle', 'After Effects'],
-      duration: '3 weeks',
-      role: 'UI/UX Designer',
-      challenge: 'Reducing cart abandonment and improving user conversion rates',
-      solution: 'Simplified checkout flow with progress indicators and one-tap purchasing',
-      figmaUrl: 'https://figma.com/your-mobile-app-design',
-      prototypeUrl: 'https://figma.com/proto/your-mobile-app-prototype',
-      caseStudyUrl: '#',
-      devices: ['mobile']
+        id: 2,
+        title: 'Car Rental Website UI/UX',
+        category: 'web',
+        description: 'A modern, responsive website for a car rental service, focusing on seamless booking, vehicle browsing, and user-friendly management for both customers and administrators.',
+        image: '/Tentang - Profile.png',
+        tags: ['UI Design', 'UX Research', 'Booking Flow', 'Accessibility'],
+        tools: ['Figma'],
+        duration: '2 weeks',
+        role: 'UI/UX Designer | Group Project',
+        challenge: 'Designing an intuitive booking process and clear vehicle information for diverse users',
+        solution: 'Developed a step-by-step booking flow, prominent vehicle details, and accessible navigation',
+        figmaUrl: 'https://www.figma.com/design/U3lIMl9Hmn1NuqYTtaK9YH/TR_Kelompok-8?node-id=3-63&t=LsjGDt6RKrLiCZ2A-1',
+        prototypeUrl: 'https://www.figma.com/proto/U3lIMl9Hmn1NuqYTtaK9YH/TR_Kelompok-8?node-id=3-63&t=LsjGDt6RKrLiCZ2A-1',
+        caseStudyUrl: '#',
+        devices: ['desktop', 'tablet', 'mobile']
     },
     {
-      id: 3,
-      title: 'Dashboard Analytics Interface',
-      category: 'web',
-      description: 'A comprehensive data visualization dashboard for business analytics with interactive charts.',
-      image: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Data Visualization', 'Dashboard Design', 'Information Architecture'],
-      tools: ['Figma', 'Sketch', 'InVision'],
-      duration: '4 weeks',
-      role: 'UI/UX Designer & Researcher',
-      challenge: 'Making complex data easily digestible and actionable for users',
-      solution: 'Hierarchical information structure with progressive disclosure and customizable views',
-      figmaUrl: 'https://figma.com/your-dashboard-design',
-      prototypeUrl: 'https://figma.com/proto/your-dashboard-prototype',
-      caseStudyUrl: '#',
-      devices: ['desktop', 'tablet']
+        id: 3,
+        title: 'Coming Soon',
+        category: 'web',
+        description: 'This project is coming soon. Stay tuned for updates!',
+        image: 'https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg',
+        tags: [],
+        tools: [],
+        duration: '',
+        role: '',
+        challenge: '',
+        solution: '',
+        // figmaUrl: '#', wiil add later if theres new project added
+        // prototypeUrl: '#', 
+        // caseStudyUrl: '#',
+        devices: []
     },
     {
-      id: 4,
-      title: 'Food Delivery App Redesign',
-      category: 'mobile',
-      description: 'Complete redesign of a food delivery app focusing on speed and user experience optimization.',
-      image: 'https://images.pexels.com/photos/4393668/pexels-photo-4393668.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['App Redesign', 'User Research', 'Prototyping', 'Usability Testing'],
-      tools: ['Figma', 'Maze', 'Hotjar'],
-      duration: '5 weeks',
-      role: 'Lead UI/UX Designer',
-      challenge: 'Improving order completion time and user satisfaction ratings',
-      solution: 'Streamlined ordering process with smart recommendations and location-based suggestions',
-      figmaUrl: 'https://figma.com/your-food-app-design',
-      prototypeUrl: 'https://figma.com/proto/your-food-app-prototype',
-      caseStudyUrl: '#',
-      devices: ['mobile']
+        id: 4,
+        title: 'Coming Soon',
+        category: 'mobile',
+        description: 'This project is coming soon. Stay tuned for updates!',
+        image: 'https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg',
+        tags: [],
+        tools: [],
+        duration: '',
+        role: '',
+        challenge: '',
+        solution: '',
+        // figmaUrl: '#', wiil add later if theres new project added
+        // prototypeUrl: '#',
+        // caseStudyUrl: '#',
+        devices: []
     }
-  ];
+];
 
   const filteredProjects = activeCategory === 'all' 
     ? designProjects 
@@ -371,7 +371,7 @@ export function UIUXPortfolio() {
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Design Tools</h4>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'After Effects'].map((tool) => (
+                  {['Figma', 'Illustrator', 'Photoshop', 'Adobe XD'].map((tool) => (
                     <span key={tool} className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
                       {tool}
                     </span>
