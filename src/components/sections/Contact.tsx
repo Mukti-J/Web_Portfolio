@@ -63,13 +63,12 @@ export function Contact() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       );
 
-      console.log('Main email sent successfully');
-
-      // Send auto-reply to user
+      console.log('Main email sent successfully');      // Send auto-reply to user
       const autoReplyParams = {
         from_name: formData.name,
         to_email: formData.email,
-        subject: formData.subject
+        subject: formData.subject,
+        original_message: formData.message
       };
 
       console.log('Sending auto-reply with params:', autoReplyParams);
