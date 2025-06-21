@@ -164,7 +164,7 @@ export function Contact() {
       icon: Phone,
       label: 'Phone',
       value: '+62 857-3834-4756',
-      href: 'tel:+6285738344756',
+      href: 'https://wa.me/6285738344756',
       color: 'from-green-500 to-emerald-500'
     },
     {
