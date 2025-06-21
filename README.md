@@ -2,7 +2,8 @@
 
 A modern, responsive portfolio website showcasing my journey as a Computer Science student and aspiring software engineer. Built with cutting-edge web technologies and featuring smooth animations, dark mode support, and a fully functional contact system.
 
-![Portfolio Preview](https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![Portfolio Preview](preview.png)
+🔗 [Link](https://muktij-portfolio.vercel.app/)
 
 ## ✨ Features
 
