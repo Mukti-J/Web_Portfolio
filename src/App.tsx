@@ -25,13 +25,17 @@ function HomePage() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Navigation />
-        <ThemeToggle />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/uiux-portfolio" element={<UIUXPortfolio />} />
-        </Routes>
+      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
+        <div className="relative w-full max-w-full">
+          <Navigation />
+          <ThemeToggle />
+          <div className="w-full overflow-x-hidden">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/uiux-portfolio" element={<UIUXPortfolio />} />
+            </Routes>
+          </div>
+        </div>
       </div>
     </Router>
   );
