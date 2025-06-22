@@ -61,9 +61,9 @@ function DockItem({ item, mouseX, isActive, onClick }: DockItemProps) {
           )}
         </motion.div>
 
-        {/* Tooltip - Hidden on mobile */}
+        {/* Tooltip - Show on desktop, hide on mobile touch devices */}
         <motion.div
-          className="hidden sm:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
+          className="hidden md:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
           style={{
             pointerEvents: 'none'
           }}
@@ -96,37 +96,64 @@ export function Navigation() {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home, section: 'hero' },
-    { path: '/#about', label: 'About', icon: User, section: 'about' },
-    { path: '/#projects', label: 'Projects', icon: Briefcase, section: 'projects' },
-    { path: '/#skills', label: 'Skills', icon: Code, section: 'skills' },
+    { path: '/', label: 'About', icon: User, section: 'about' },
+    { path: '/', label: 'Projects', icon: Briefcase, section: 'projects' },
+    { path: '/', label: 'Skills', icon: Code, section: 'skills' },
     { path: '/uiux-portfolio', label: 'UI/UX', icon: Palette, section: null },
-    { path: '/#experience', label: 'Experience', icon: FileText, section: 'experience' },
-    { path: '/#contact', label: 'Contact', icon: Mail, section: 'contact' },
+    { path: '/', label: 'Experience', icon: FileText, section: 'experience' },
+    { path: '/', label: 'Contact', icon: Mail, section: 'contact' },
   ];
 
-    const handleNavClick = (item: typeof navItems[0]) => {
-        if (item.section && location.pathname === '/') {
-            // If we're on homepage and clicking a section, scroll to section or top
-            setTimeout(() => {
-                const element = document.getElementById(item.section!);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else if (item.section === 'hero') {
-                    // Scroll to top if section is 'hero' or not found
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            }, 100);
-        } else if (item.path === '/') {
-            // Always scroll to top when clicking Home
-            setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 100);
+  const handleNavClick = (item: typeof navItems[0]) => {
+    if (item.path === '/uiux-portfolio') {
+      // For UI/UX portfolio, navigate and scroll to top
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    } else if (item.section && location.pathname === '/') {
+      // If we're on homepage and clicking a section, scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(item.section!);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (item.section === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    };
+      }, 100);
+    } else if (item.path === '/') {
+      // Always scroll to top when clicking Home, or navigate to homepage first
+      if (location.pathname !== '/') {
+        // If not on homepage, navigate first then scroll
+        setTimeout(() => {
+          if (item.section && item.section !== 'hero') {
+            const element = document.getElementById(item.section);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 300); // Longer delay for page navigation
+      } else {
+        // Already on homepage, just scroll
+        setTimeout(() => {
+          if (item.section && item.section !== 'hero') {
+            const element = document.getElementById(item.section);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  };
 
   const isActive = (item: typeof navItems[0]) => {
-    if (item.path === '/' && location.pathname === '/') return true;
+    if (item.path === '/' && item.section === 'hero' && location.pathname === '/') return true;
     if (item.path === '/uiux-portfolio' && location.pathname === '/uiux-portfolio') return true;
+    // For section-based navigation, check current section (you'll need to implement section detection)
     return false;
   };
 
