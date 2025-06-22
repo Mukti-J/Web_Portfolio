@@ -23,10 +23,11 @@ function DockItem({ item, mouseX, isActive, onClick }: DockItemProps) {
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthSync = useTransform(distance, [-150, 0, 150], [48, 80, 48]);
+  // Responsive sizing: smaller on mobile, larger on desktop
+  const widthSync = useTransform(distance, [-150, 0, 150], [40, 64, 40]);
   const width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
 
-  const heightSync = useTransform(distance, [-150, 0, 150], [48, 80, 48]);
+  const heightSync = useTransform(distance, [-150, 0, 150], [40, 64, 40]);
   const height = useSpring(heightSync, { mass: 0.1, stiffness: 150, damping: 12 });
 
   const Icon = item.icon;
@@ -43,7 +44,7 @@ function DockItem({ item, mouseX, isActive, onClick }: DockItemProps) {
           whileHover={{ y: -8 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Icon className="w-6 h-6" />
+          <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
 
           {/* Ripple effect */}
           {isActive && (
@@ -60,9 +61,9 @@ function DockItem({ item, mouseX, isActive, onClick }: DockItemProps) {
           )}
         </motion.div>
 
-        {/* Tooltip */}
+        {/* Tooltip - Hidden on mobile */}
         <motion.div
-          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
+          className="hidden sm:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 text-sm font-medium rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm"
           style={{
             pointerEvents: 'none'
           }}
@@ -130,14 +131,14 @@ export function Navigation() {
   };
 
   return (
-    <div className="fixed bottom-6 left-0 right-0 flex justify-center z-50 pointer-events-none">
+    <div className="fixed bottom-2 sm:bottom-4 md:bottom-6 left-2 right-2 sm:left-4 sm:right-4 md:left-0 md:right-0 flex justify-center z-50 pointer-events-none">
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="flex items-end gap-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-2xl rounded-2xl p-3 border border-white/20 dark:border-gray-700/30 shadow-2xl pointer-events-auto"
+        className="flex items-end gap-1 sm:gap-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur-2xl rounded-xl sm:rounded-2xl p-2 sm:p-3 border border-white/20 dark:border-gray-700/30 shadow-2xl pointer-events-auto max-w-full overflow-x-auto"
         style={{
           background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
           backdropFilter: 'blur(20px)',
@@ -155,9 +156,9 @@ export function Navigation() {
         ))}
       </motion.div>
 
-      {/* Reflection effect */}
+      {/* Reflection effect - Hidden on mobile */}
       <motion.div
-        className="absolute top-full left-0 right-0 h-8 rounded-b-2xl opacity-20 pointer-events-none"
+        className="hidden sm:block absolute top-full left-0 right-0 h-8 rounded-b-2xl opacity-20 pointer-events-none"
         style={{
           background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%)',
           filter: 'blur(4px)',
